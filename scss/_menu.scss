@@ -81,5 +81,41 @@
         &.open{
             transform: translateY(0);
         }
+
+        &__nav-item {
+            transform: translateX(100vw);
+            @include transition-ease;
+
+            &.open{
+                transform: translateX(0);
+            }
+
+            &.active{
+                color: $secondary-color;
+            }
+        }
+
+        &__link{
+            display: inline-block;
+            font-size: 2rem;
+            text-transform: uppercase;
+            padding: 2rem 0;
+            font-weight: 300;
+            @include transition-ease;
+
+            &.active{
+                color: $secondary-color;
+            }
+
+            &:hover{
+                color: $secondary-color;
+            }
+        }
+    }
+}
+
+@for $i from 1 through 4 {
+    .menu-nav__nav-item:nth-child(#{$i}){
+        transition-delay: ($i * 0.1s) + 0.15s;
     }
 }
